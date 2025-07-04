@@ -1,6 +1,6 @@
 package com.FawryRiseJourney.payment;
 
-import com.FawryRiseJourney.Customer;
+import com.FawryRiseJourney.Customer.Customer;
 
 import java.util.HashMap;
 

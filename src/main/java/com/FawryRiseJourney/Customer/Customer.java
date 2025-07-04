@@ -1,4 +1,4 @@
-package com.FawryRiseJourney;
+package com.FawryRiseJourney.Customer;
 
 import com.FawryRiseJourney.payment.PaymentInterface;
 
