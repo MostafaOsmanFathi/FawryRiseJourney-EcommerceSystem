@@ -4,7 +4,18 @@
 [JAR](https://github.com/MostafaOsmanFathi/FawryRiseJourney-EcommerceSystem/releases/latest)
 
 ---
+## 📌 CLASS DIAGRAM DESIGN INCLUDED!
 
+➡️ A complete **Class Diagram Design** is available in the repository folder.
+
+Check it out to quickly understand the structure and architecture of the project!
+
+🔗 [View Class Diagram Folder](https://github.com/MostafaOsmanFathi/FawryRiseJourney-EcommerceSystem/tree/main/DiagramsAndArchitectureDesign)
+
+🧠 This visual reference will help you navigate the codebase more effectively.
+
+
+---
 ## ✨ Table of Contents
 
 * [Project Structure](#project-structure)
