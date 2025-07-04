@@ -5,8 +5,9 @@ import com.FawryRiseJourney.Customer;
 import java.util.HashMap;
 
 public class PseudoPayment implements PaymentInterface {
+    //Replacement for the database for now
     static final HashMap<Integer, Double> customerBalance = new HashMap<>();
-
+    static double faweryProfit = 0.0;
     private final int customerId;
 
 
@@ -32,6 +33,7 @@ public class PseudoPayment implements PaymentInterface {
         }
 
         customerBalance.put(this.customerId, customerBalance.get(this.customerId) - amount);
+        faweryProfit += amount;
         return true;
     }
 
