@@ -19,7 +19,7 @@ public class CustomerService {
         return customerService;
     }
 
-    Customer createCustomer(int customerId, String customerName, String customerEmail) {
+    public Customer createCustomer(int customerId, String customerName, String customerEmail) {
         Customer customer = new Customer(customerName, customerEmail);
         customer.setCustomerId(customerId);
         return customer;

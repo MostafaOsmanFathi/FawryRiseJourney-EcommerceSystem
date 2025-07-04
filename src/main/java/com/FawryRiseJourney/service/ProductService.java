@@ -30,10 +30,9 @@ public class ProductService {
 
     public void productsOverview() {
         System.out.println("------Products Overview------");
+        int idx = 0;
         for (Product product : listOfProducts) {
-            System.out.println("----------");
-            System.out.println(product);
-            System.out.println("----------");
+            System.out.println(Integer.toString(++idx) + "." + product);
         }
         System.out.println("-----------------------------");
     }

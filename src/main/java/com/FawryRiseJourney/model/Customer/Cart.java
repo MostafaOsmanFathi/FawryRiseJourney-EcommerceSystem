@@ -1,7 +1,9 @@
 package com.FawryRiseJourney.model.Customer;
 
 import com.FawryRiseJourney.model.payment.PaymentInterface;
+import com.FawryRiseJourney.model.product.DigitalProduct;
 import com.FawryRiseJourney.model.product.Product;
+import com.FawryRiseJourney.model.product.ShippableProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,11 +73,33 @@ public class Cart {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Shippable Products: \n");
+
+        int idx = 1;
         for (ProductInCart product : listOfProductsInCart) {
-            stringBuilder.append("--------------------------");
-            stringBuilder.append(product.toString());
-            stringBuilder.append("--------------------------");
+            if (product.getProduct() instanceof ShippableProduct shippableProduct) {
+                stringBuilder.append(idx + ": " + product.toString() + "\n");
+                ++idx;
+            }
         }
+        stringBuilder.append("Total Weight: " + totalWeight() + "\n\n");
+
+        stringBuilder.append("Digital Products: \n");
+        idx = 1;
+        for (ProductInCart product : listOfProductsInCart) {
+            if (product.getProduct() instanceof DigitalProduct digitalProduct) {
+                stringBuilder.append(idx + ": " + product.toString() + "\n");
+                ++idx;
+            }
+        }
+
+        stringBuilder.append("\nsubtotal:\t\t" + totalPriceWithoutShippingCost() + "\n");
+        stringBuilder.append("shipping:\t\t" + totalShippingCost() + "\n");
+        stringBuilder.append("amount:\t\t" + totalPrice() + "\n");
+
+        stringBuilder.append("------------------");
+
+
         return stringBuilder.toString();
     }
 }

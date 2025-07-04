@@ -60,12 +60,16 @@ public class ProductInCart {
     @Override
     public String toString() {
         if (product instanceof ShippableProduct shippableProduct) {
-            return shippableProduct.getProductType() + "\t" + numOfSelectedQuantity + "\t" + shippableProduct.getWeight() + "kg \t" + getTotalWeight() +
-                    "\n total price without shipping fees:" + getTotalPrice() + "\n total shipping fee:" + getTotalShippingCost() +
-                    "\ntotal price for: " + shippableProduct.getProductName() + " is :" + getTotalPrice() + getTotalShippingCost();
+            int quantity = numOfSelectedQuantity;
+            String name = shippableProduct.getProductName();
+            double weight = shippableProduct.getWeight();
+            double totalWeightKg = getTotalWeight();
 
+            return quantity + "x " + name + " " + weight + "kg " +
+                    "Total weight " + totalWeightKg + "kg Price:" + product.getPrice() + " total Price:" + getTotalPrice();
         }
-        return product.getProductType() + "\t" + numOfSelectedQuantity +
-                "\n total price :" + getTotalPrice();
+
+        return numOfSelectedQuantity + "x " + product.getProductName() + " price: " + product.getPrice() + " total Price: " + getTotalPrice();
     }
+
 }
