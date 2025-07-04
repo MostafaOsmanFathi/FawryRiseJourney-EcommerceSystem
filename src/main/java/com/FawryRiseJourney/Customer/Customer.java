@@ -11,9 +11,11 @@ public class Customer {
     private String email;
     private String password;
     private List<PaymentInterface> paymentMethods;
+    private final Cart cart;
     private int defaultPaymentIdx;
 
     public Customer() {
+        this.cart = new Cart();
     }
 
     public Customer(String name, String email, String password) {
@@ -22,6 +24,7 @@ public class Customer {
         this.password = password;
         this.paymentMethods = new ArrayList<PaymentInterface>();
         this.defaultPaymentIdx = -1;
+        this.cart = new Cart();
     }
 
     public void addPaymentMethod(PaymentInterface paymentMethod) {

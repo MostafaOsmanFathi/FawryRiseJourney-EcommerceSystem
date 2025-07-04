@@ -1,21 +1,22 @@
 package com.FawryRiseJourney.Customer;
 
 import com.FawryRiseJourney.payment.PaymentInterface;
+import com.FawryRiseJourney.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    private final List<ProductInCart> cart;
+    private final List<ProductInCart> listOfProductsInCart;
 
-    public Cart(PaymentInterface payment) {
-        this.cart = new ArrayList<ProductInCart>();
+    public Cart() {
+        this.listOfProductsInCart = new ArrayList<ProductInCart>();
     }
 
     public boolean checkout(PaymentInterface payment) {
         double totalPrice = totalPrice();
         if (payment.charge(totalPrice)) {
-            for (ProductInCart product : cart) {
+            for (ProductInCart product : listOfProductsInCart) {
                 product.applyTransaction();
             }
             return true;
@@ -29,7 +30,7 @@ public class Cart {
 
     public double totalPriceWithoutShippingCost() {
         double totalPrice = 0;
-        for (ProductInCart product : cart) {
+        for (ProductInCart product : listOfProductsInCart) {
             totalPrice += product.getTotalPrice();
         }
         return totalPrice;
@@ -37,7 +38,7 @@ public class Cart {
 
     public double totalWeight() {
         double totalWeight = 0;
-        for (ProductInCart product : cart) {
+        for (ProductInCart product : listOfProductsInCart) {
             totalWeight += product.getTotalWeight();
         }
         return totalWeight;
@@ -45,9 +46,22 @@ public class Cart {
 
     public double totalShippingCost() {
         double totalShippingCost = 0;
-        for (ProductInCart product : cart) {
+        for (ProductInCart product : listOfProductsInCart) {
             totalShippingCost += product.getTotalShippingCost();
         }
         return totalShippingCost;
+    }
+
+    public boolean addProduct(Product product, int quantity) {
+        return listOfProductsInCart.add(new ProductInCart(product, quantity));
+    }
+
+    public boolean removeProduct(Product product, int quantity) {
+        int index = listOfProductsInCart.indexOf(product);
+        if (index >= 0 && index < listOfProductsInCart.size()) {
+            listOfProductsInCart.remove(index);
+            return true;
+        }
+        return false;
     }
 }
