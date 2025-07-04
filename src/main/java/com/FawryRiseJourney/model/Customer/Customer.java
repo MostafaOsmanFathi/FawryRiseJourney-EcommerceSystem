@@ -9,7 +9,6 @@ public class Customer {
     private int customerId;
     private String name;
     private String email;
-    private String password;
     private List<PaymentInterface> paymentMethods;
     private final Cart cart;
     private int defaultPaymentIdx;
@@ -18,10 +17,9 @@ public class Customer {
         this.cart = new Cart();
     }
 
-    public Customer(String name, String email, String password) {
+    public Customer(String name, String email) {
         this.name = name;
         this.email = email;
-        this.password = password;
         this.paymentMethods = new ArrayList<PaymentInterface>();
         this.defaultPaymentIdx = -1;
         this.cart = new Cart();
@@ -32,6 +30,14 @@ public class Customer {
         if (defaultPaymentIdx == -1) {
             defaultPaymentIdx = 0;
         }
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public boolean checkoutCart() {
+        return cart.checkout(paymentMethods.get(defaultPaymentIdx));
     }
 
     boolean charge(double amount, int paymentMethodIdx) {
@@ -64,14 +70,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getCustomerId() {

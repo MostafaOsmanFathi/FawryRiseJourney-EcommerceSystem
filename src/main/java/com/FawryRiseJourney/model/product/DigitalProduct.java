@@ -25,7 +25,7 @@ public class DigitalProduct extends Product {
     }
 
     @Override
-    String getProductType() {
+    public String getProductType() {
         return "Digital Product";
     }
 }

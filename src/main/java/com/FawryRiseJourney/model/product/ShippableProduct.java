@@ -17,7 +17,7 @@ public class ShippableProduct extends Product {
     }
 
     @Override
-    String getProductType() {
+    public String getProductType() {
         return "Shippable Product";
     }
 
@@ -29,7 +29,7 @@ public class ShippableProduct extends Product {
         this.weight = weight;
     }
 
-    public double shippingCost(){
+    public double shippingCost() {
         return shippable.CalculateShippingCost(getWeight());
     }
 

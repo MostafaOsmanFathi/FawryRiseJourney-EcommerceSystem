@@ -64,4 +64,15 @@ public class Cart {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (ProductInCart product : listOfProductsInCart) {
+            stringBuilder.append("--------------------------");
+            stringBuilder.append(product.toString());
+            stringBuilder.append("--------------------------");
+        }
+        return stringBuilder.toString();
+    }
 }

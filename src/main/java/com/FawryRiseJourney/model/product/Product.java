@@ -21,7 +21,7 @@ public abstract class Product {
         this(productName, price, quantity, null);
     }
 
-    abstract String getProductType();
+    public abstract String getProductType();
 
 
     public String getProductName() {

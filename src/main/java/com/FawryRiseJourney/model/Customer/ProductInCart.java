@@ -51,4 +51,18 @@ public class ProductInCart {
         product.setQuantity(product.getQuantity() - numOfSelectedQuantity);
         return true;
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    @Override
+    public String toString() {
+        if (product instanceof ShippableProduct shippableProduct) {
+            return shippableProduct.getProductType() + "\t" + numOfSelectedQuantity + "\t" + shippableProduct.getWeight() + "kg \t" + getTotalWeight() +
+                    "\n total price without shipping fees:" + getTotalPrice() + "\n total shipping fee:" + getTotalShippingCost() +
+                    "\ntotal price for: " + product.getProductName() + " is :" + getTotalPrice() + getTotalShippingCost();
+
+        }
+    }
 }
