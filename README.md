@@ -1,7 +1,7 @@
 # Fawry Rise Journey Shop
 
 > download jar relaese from here
-`[JAR](https://github.com/MostafaOsmanFathi/FawryRiseJourney-EcommerceSystem/releases/latest)`
+[JAR](https://github.com/MostafaOsmanFathi/FawryRiseJourney-EcommerceSystem/releases/latest)
 
 ---
 
