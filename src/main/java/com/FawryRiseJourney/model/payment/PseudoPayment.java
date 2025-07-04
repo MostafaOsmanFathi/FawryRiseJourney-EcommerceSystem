@@ -15,7 +15,7 @@ public class PseudoPayment implements PaymentInterface {
         this.customerId = customerId;
     }
 
-    static boolean createCustomerBalance(Customer customer) {
+    public static boolean createCustomerBalance(Customer customer) {
         if (customerBalance.containsKey(customer.getCustomerId())) {
             return false;//Customer allready exist
         }
@@ -25,7 +25,7 @@ public class PseudoPayment implements PaymentInterface {
 
     @Override
     public boolean charge(double amount) {
-        if (customerBalance.containsKey(customerId)) {
+        if (!customerBalance.containsKey(customerId)) {
             throw new IllegalCallerException("Customer doesn't Exist in Our Payment Service please create your cutomer in our servcie ");
         }
         if (amount > customerBalance.get(this.customerId)) {
@@ -35,6 +35,24 @@ public class PseudoPayment implements PaymentInterface {
         customerBalance.put(this.customerId, customerBalance.get(this.customerId) - amount);
         faweryProfit += amount;
         return true;
+    }
+
+    public boolean deposit(int customerId, double amount) {
+        customerBalance.put(customerId, customerBalance.get(customerId) + amount);
+        return true;
+    }
+
+    public boolean withdraw(int customerId, double amount) {
+        double balance = customerBalance.get(customerId);
+        if (balance < amount) {
+            return false;
+        }
+        customerBalance.put(customerId, customerBalance.get(customerId) + amount);
+        return true;
+    }
+
+    public double getBalance(int customerId) {
+        return customerBalance.get(customerId);
     }
 
     @Override

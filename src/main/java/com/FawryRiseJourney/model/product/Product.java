@@ -55,4 +55,9 @@ public abstract class Product {
     public void setExpireDate(LocalDate expireDate) {
         ExpireDate = expireDate;
     }
+
+    @Override
+    public String toString() {
+        return "Product name:" + productName + " price:" + price + " quantity:" + quantity + " expireDate:" + ((ExpireDate == null) ? "NoExpireDate" : ExpireDate.toString());
+    }
 }

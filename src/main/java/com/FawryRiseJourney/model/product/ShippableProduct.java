@@ -6,14 +6,17 @@ public class ShippableProduct extends Product {
     private double weight;
     private Shippable shippable;
 
-    public ShippableProduct(String name, double price, int quantity, LocalDate expireDate, double weight) {
+
+    public ShippableProduct(String name, double price, int quantity, LocalDate expireDate, double weight, Shippable shippable) {
         super(name, price, quantity, expireDate);
         this.weight = weight;
+        this.shippable = shippable;
     }
 
-    public ShippableProduct(String name, double price, int quantity, double weight) {
+    public ShippableProduct(String name, double price, int quantity, double weight, Shippable shippable) {
         super(name, price, quantity);
         this.weight = weight;
+        this.shippable = shippable;
     }
 
     @Override

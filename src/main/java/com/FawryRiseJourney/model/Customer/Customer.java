@@ -32,6 +32,10 @@ public class Customer {
         }
     }
 
+    public int getNumberOfPaymentMethods() {
+        return this.paymentMethods.size();
+    }
+
     public Cart getCart() {
         return cart;
     }

@@ -53,7 +53,10 @@ public class Cart {
     }
 
     public boolean addProduct(Product product, int quantity) {
-        return listOfProductsInCart.add(new ProductInCart(product, quantity));
+        if (quantity >= product.getQuantity())
+            return false;
+        boolean tmp = listOfProductsInCart.add(new ProductInCart(product, quantity));
+        return tmp;
     }
 
     public boolean removeProduct(Product product, int quantity) {

@@ -56,13 +56,16 @@ public class ProductInCart {
         return product;
     }
 
+
     @Override
     public String toString() {
         if (product instanceof ShippableProduct shippableProduct) {
             return shippableProduct.getProductType() + "\t" + numOfSelectedQuantity + "\t" + shippableProduct.getWeight() + "kg \t" + getTotalWeight() +
                     "\n total price without shipping fees:" + getTotalPrice() + "\n total shipping fee:" + getTotalShippingCost() +
-                    "\ntotal price for: " + product.getProductName() + " is :" + getTotalPrice() + getTotalShippingCost();
+                    "\ntotal price for: " + shippableProduct.getProductName() + " is :" + getTotalPrice() + getTotalShippingCost();
 
         }
+        return product.getProductType() + "\t" + numOfSelectedQuantity +
+                "\n total price :" + getTotalPrice();
     }
 }
