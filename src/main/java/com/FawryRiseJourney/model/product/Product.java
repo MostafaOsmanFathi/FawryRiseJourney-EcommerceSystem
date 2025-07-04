@@ -1,4 +1,4 @@
-package com.FawryRiseJourney.product;
+package com.FawryRiseJourney.model.product;
 
 import java.time.LocalDate;
 

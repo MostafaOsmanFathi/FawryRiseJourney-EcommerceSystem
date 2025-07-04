@@ -1,7 +1,7 @@
-package com.FawryRiseJourney.Customer;
+package com.FawryRiseJourney.model.Customer;
 
-import com.FawryRiseJourney.product.Product;
-import com.FawryRiseJourney.product.ShippableProduct;
+import com.FawryRiseJourney.model.product.Product;
+import com.FawryRiseJourney.model.product.ShippableProduct;
 
 public class ProductInCart {
     private int numOfSelectedQuantity;

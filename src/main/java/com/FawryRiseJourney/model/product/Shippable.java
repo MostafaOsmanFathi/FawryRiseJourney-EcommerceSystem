@@ -1,4 +1,4 @@
-package com.FawryRiseJourney.product;
+package com.FawryRiseJourney.model.product;
 
 public interface Shippable {
     double CalculateShippingCost(double weight);

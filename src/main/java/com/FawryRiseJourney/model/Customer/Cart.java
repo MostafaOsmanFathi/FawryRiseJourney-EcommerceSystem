@@ -1,7 +1,7 @@
-package com.FawryRiseJourney.Customer;
+package com.FawryRiseJourney.model.Customer;
 
-import com.FawryRiseJourney.payment.PaymentInterface;
-import com.FawryRiseJourney.product.Product;
+import com.FawryRiseJourney.model.payment.PaymentInterface;
+import com.FawryRiseJourney.model.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;

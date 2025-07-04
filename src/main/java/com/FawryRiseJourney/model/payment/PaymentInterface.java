@@ -1,4 +1,4 @@
-package com.FawryRiseJourney.payment;
+package com.FawryRiseJourney.model.payment;
 
 public interface PaymentInterface {
     boolean charge(double amount);
