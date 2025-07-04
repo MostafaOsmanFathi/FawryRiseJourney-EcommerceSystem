@@ -16,6 +16,14 @@ public class DigitalProduct extends Product {
 
     }
 
+    public String getDigitalCode() {
+        return DigitalCode;
+    }
+
+    public void setDigitalCode(String digitalCode) {
+        DigitalCode = digitalCode;
+    }
+
     @Override
     String getProductType() {
         return "Digital Product";
