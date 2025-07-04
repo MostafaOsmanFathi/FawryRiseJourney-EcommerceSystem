@@ -2,6 +2,7 @@ package com.FawryRiseJourney;
 
 import com.FawryRiseJourney.payment.PaymentInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -10,6 +11,7 @@ public class Customer {
     private String email;
     private String password;
     private List<PaymentInterface> paymentMethods;
+    private int defaultPaymentIdx;
 
     public Customer() {
     }
@@ -18,6 +20,31 @@ public class Customer {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.paymentMethods = new ArrayList<PaymentInterface>();
+        this.defaultPaymentIdx = -1;
+    }
+
+    public void addPaymentMethod(PaymentInterface paymentMethod) {
+        this.paymentMethods.add(paymentMethod);
+        if (defaultPaymentIdx == -1) {
+            defaultPaymentIdx = 0;
+        }
+    }
+
+    boolean charge(double amount, int paymentMethodIdx) {
+        return paymentMethods.get(paymentMethodIdx).charge(amount);
+    }
+
+    boolean charge(double amount) {
+        return charge(amount, defaultPaymentIdx);
+    }
+
+    boolean refund(double amount, int paymentMethodIdx) {
+        return paymentMethods.get(paymentMethodIdx).refund(amount);
+    }
+
+    boolean refund(double amount) {
+        return refund(amount, defaultPaymentIdx);
     }
 
     public String getName() {
@@ -50,5 +77,13 @@ public class Customer {
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
+    }
+
+    public int getDefaultPaymentIdx() {
+        return defaultPaymentIdx;
+    }
+
+    public void setDefaultPaymentIdx(int defaultPaymentIdx) {
+        this.defaultPaymentIdx = defaultPaymentIdx;
     }
 }
